@@ -1,0 +1,1 @@
+export { UserPrincipalImpl } from "./UserPrincipalImpl"

@@ -1,0 +1,47 @@
+{
+    "name": "@aerogearservices/auth",
+    "version": "1.0.0",
+    "description": "JavaScript Auth module for AeroGear services",
+    "main": "dist/index.js",
+    "types": "types/index.d.ts",
+    "author": "Aerogear <aerogear@googlegroups.com>",
+    "keywords": [
+      "aerogear",
+      "mobile"
+    ],
+    "license": "Apache-2.0",
+    "scripts": {
+      "clean": "del coverage src/**/*.js src/**/*.map test/**/*.js test/**/*.map",
+      "build": "tsc",
+      "watch": "tsc --watch",
+      "test": "nyc mocha"
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "nyc": {
+      "include": [
+        "src/**/*.ts"
+      ],
+      "extension": [
+        ".ts"
+      ],
+      "require": [
+        "ts-node/register"
+      ],
+      "reporter": [
+        "lcov",
+        "text"
+      ],
+      "lines": 75,
+      "functions": 100,
+      "branches": 80
+    },
+    "devDependencies": {
+      "typescript": "^2.8.1"
+    },
+    "dependencies": {
+        "@aerogearservices/core": "1.0.0"
+    }
+  }
+  
