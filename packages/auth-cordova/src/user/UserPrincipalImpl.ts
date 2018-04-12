@@ -16,6 +16,7 @@ export class UserPrincipalImpl implements UserPrincipal{
     constructor(userName: string, firstName: string, lastName: string, email: string, roles: Array<UserRole>, identityToken: string, accessToken: string, refreshToken: string){
         this.userName = userName;
         this.lastName = lastName;
+        this.firstName = firstName;
         this.email = email;
         this.roles = roles;
         this.identityToken = identityToken;

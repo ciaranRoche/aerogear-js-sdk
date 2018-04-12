@@ -60,6 +60,6 @@
   },
   "dependencies": {
     "@aerogearservices/core": "1.0.0",
-    "keycloak-js": "^3.4.0"
+    "keycloak-js": "^3.4.3"
   }
 }

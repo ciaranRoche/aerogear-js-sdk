@@ -15,11 +15,11 @@ export class KeycloakConfiguration {
     resourceId: string;
     baseUrl: string;
 
-    constructor(config: ServiceConfiguration){
-        this.serverUrl = ServiceConfiguration.serverUrl;
-        this.realmId = ServiceConfiguration.realmId;
-        this.resourceId = ServiceConfiguration.resourceId;
-        this.baseUrl = ServiceConfiguration.baseUrl;
+    constructor(config: ServiceConfiguration){        
+        this.serverUrl = config.config.get(this.SERVER_URL_NAME) || '';
+        this.realmId = config.config.get(this.REALM_ID_NAME) || '';
+        this.resourceId = config.config.get(this.RESOURCE_ID_NAME) || '';
+        this.baseUrl = config.config.get(this.BASE_URL_TEMPLATE) || '';
     }
 
 }
