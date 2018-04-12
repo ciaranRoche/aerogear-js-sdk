@@ -1,38 +1,42 @@
 import { KeycloakConfiguration } from "./configuration";
-import { Keycloak } from "keycloak-js";
+import Keycloak from 'keycloak-js';
 import { ServiceConfiguration } from "@aerogearservices/core";
 
 
 export class AuthService{
-    private keycloak: Keycloak;
     private keycloakConfig: KeycloakConfiguration;
+    static auth: any = {};
 
-    constructor(keycloak: Keycloak, serviceConfig: ServiceConfiguration){
-        
+    constructor(serviceConfig: ServiceConfiguration){
         this.keycloakConfig = new KeycloakConfiguration(serviceConfig);
-        this.keycloak = this.init();
     } 
 
     currentUser(){
-        return this.keycloak.authz.getCurrentUser();
+        AuthService.auth.authz.loadUserProfile();
     }
 
     login(){
-        return this.keycloak.authz.login();
+        AuthService.auth.authz.login();
     }
 
     logout(){
-        return this.keycloak.authz.logout();
+        AuthService.auth.authz.logout();
     }
 
-    init() :Keycloak{
-        let url: string = this.keycloakConfig.getHostUrl();
-        let keycloak = Keycloak({
-            url: 'http://keycloak-server/auth',
-            realm: 'myrealm',
-            clientId: 'myapp'
-        });
+    init(keycloakConfig: any) : Promise<any> {
+        if(keycloakConfig){
+        let keycloak = Keycloak(keycloakConfig);
 
-        return keycloak;
+        return new Promise((resolve, reject) => {
+            keycloak.init({ onLoad: 'login-required', flow: 'implicit' }).success(() => {
+              AuthService.auth.authz = keycloak;
+              AuthService.auth.logoutUrl = keycloak.authServerUrl + "/realms/" + keycloakConfig.realm + "/protocol/openid-connect/logout?redirect_uri=/";
+              resolve();
+            }).error((err) => {
+              reject(err);
+            });
+          });
+        }
+        return new Promise((resolve, reject) => { return resolve() });
     }
 }

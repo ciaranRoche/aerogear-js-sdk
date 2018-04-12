@@ -7,7 +7,10 @@
     "esModuleInterop": true,
     "noImplicitAny": true,
     "target": "es5",
-    "lib": ["es6"], 
+    "lib": [
+      "es6",
+      "es2015"
+    ], 
     "module": "CommonJS",
     "jsx": "react",
     "declaration": true

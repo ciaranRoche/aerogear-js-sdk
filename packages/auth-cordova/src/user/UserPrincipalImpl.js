@@ -4,6 +4,7 @@ var UserPrincipalImpl = /** @class */ (function () {
     function UserPrincipalImpl(userName, firstName, lastName, email, roles, identityToken, accessToken, refreshToken) {
         this.userName = userName;
         this.lastName = lastName;
+        this.firstName = firstName;
         this.email = email;
         this.roles = roles;
         this.identityToken = identityToken;
