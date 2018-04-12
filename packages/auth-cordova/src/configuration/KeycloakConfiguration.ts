@@ -1,5 +1,5 @@
 
-var ServiceConfiguration = require("@aerogearservices/core").ServiceConfiguration;
+import { ServiceConfiguration } from "@aerogearservices/core";
 
 export class KeycloakConfiguration {
     SERVER_URL_NAME: string = "auth-server-url";
@@ -16,8 +16,10 @@ export class KeycloakConfiguration {
     baseUrl: string;
 
     constructor(config: ServiceConfiguration){
-
+        this.serverUrl = ServiceConfiguration.serverUrl;
+        this.realmId = ServiceConfiguration.realmId;
+        this.resourceId = ServiceConfiguration.resourceId;
+        this.baseUrl = ServiceConfiguration.baseUrl;
     }
-
 
 }

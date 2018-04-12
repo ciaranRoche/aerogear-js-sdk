@@ -2,11 +2,18 @@ import { UserPrincipal } from "./UserPrincipal";
 import { UserRole } from "./UserRole";
 
 
-export class UserPrincipalImpl extends UserPrincipal{
+export class UserPrincipalImpl implements UserPrincipal{
+    userName: String;
+    firstName: String;
+    lastName: String;
+    email: String;
+    roles: UserRole[];
+    identityToken: String;
+    accessToken: String;
+    refreshToken: String;
     
     
     constructor(userName: string, firstName: string, lastName: string, email: string, roles: Array<UserRole>, identityToken: string, accessToken: string, refreshToken: string){
-        super();
         this.userName = userName;
         this.lastName = lastName;
         this.email = email;
@@ -86,5 +93,13 @@ export class UserPrincipalImpl extends UserPrincipal{
         this.refreshToken = refreshToken;
     }
 
+    hasResourceRole(role: string, resourceId: string): boolean{
+        
+        return false;
+    }
 
+    hasRealmRole(role: string): boolean{
+        
+        return false;
+    }
 }

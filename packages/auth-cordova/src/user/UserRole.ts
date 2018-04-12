@@ -1,5 +1,4 @@
 import { RoleType } from "./RoleType";
-import { type } from "os";
 
 export class UserRole{
     private name: string;
