@@ -13,6 +13,11 @@ export class AuthService{
 
     currentUser(){
         AuthService.auth.authz.loadUserProfile();
+        AuthService.auth.authz.loadUserProfile().then(function(profile: any) {
+            return profile;
+                }).catch(function() {
+                return('Failed to load user profile');
+            });
     }
 
     login(){
