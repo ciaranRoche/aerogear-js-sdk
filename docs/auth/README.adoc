@@ -1,0 +1,25 @@
+= AeroGear Services Auth SDK
+
+Mobile authentication SDK based on link:http://www.keycloak.org/[Keycloak] using link:http://openid.net/connect/[OpenID Connect].
+
+== Usage
+
+=== Setting up Keycloak
+
+==== Using OpenShift
+
+==== Standalone
+
+=== Adding Dependency
+
+=== Configuration File
+
+=== Initializing the SDK
+
+=== Retrieving the Current User
+
+=== Authenticating
+
+=== Retrieving a Users Roles
+
+=== Logging Out
