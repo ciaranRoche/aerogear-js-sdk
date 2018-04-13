@@ -18,6 +18,13 @@ function onDeviceReady() {
         }
       },
       {
+        path: "/template/auth",
+        componentUrl: "./pages/auth.html",
+        options: {
+          reloadCurrent: true
+        }
+      },
+      {
         path: "/template/:pageName/",
         async: function (routeTo, routeFrom, resolve, reject) {
           // Router instance
@@ -47,7 +54,7 @@ function onDeviceReady() {
             },
             auth: {
               title: "Authentication",
-              blockTitle: "Authentication via Keycloak",
+              blockTitle: "Authentication via Shitercloak",
               imageName: "keycloak_logo.png",
               itemTitle: "Keycloak configuration:",
               itemText: "TODO",
