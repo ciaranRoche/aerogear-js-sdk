@@ -17,18 +17,25 @@
        <!-- Contents -->
    
        <div class="page-content">
-         <div>
-           <h4>Auth:</h4>
-           <p id="metrics-info">No auth</p>
-         </div>
-   
+          <div class="list media-list">
+              <ul>
+                <li>
+                  <a href="#" class="item-content">
+                    <div class="item-media">
+                      <img src="../img/keycloak_logo.png" width="50">
+                    </div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Authenticate</div>
+                      </div>
+                      <div class="item-text" id="app-metrics">Keycloak authentication example.</div>
+                    </div.
+                  </a>
+                </li>
+              </ul>
+            </div>
          <div class="block block-strong">
-           <a href="#" class="button button-raised" @click="sendMetrics">Login</a>
-         </div>
-   
-         <div>
-           <h4>Response:</h4>
-           <p id="metrics-info"></p>
+           <a href="#" class="button button-raised">Authenticate</a>
          </div>
        </div>
    
@@ -41,25 +48,3 @@
      }
    </style>
    
-   <script>
-     return {
-       beforeCreate() {
-         var self = this;
-         self.$("#auth-info").html("No auth");
-         window.MobileCore.MetricsService.getMetrics(
-           function (metrics) {
-             self.$("#auth-info").html(JSON.stringify(metrics));
-           },
-           function (error) { self.$("#auth-info").html(error); }
-         );
-       },
-       data: function () {
-         return {}
-       },
-       methods: {
-         sendMetrics: function (success, error) {
-           // TODO: import library and call sendAppAndDeviceMetrics
-         },
-       }
-     };
-   </script>
