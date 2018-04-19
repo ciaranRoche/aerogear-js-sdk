@@ -30,7 +30,11 @@ The route should look like `https://keycloak-myproject.192.168.37.1.nip.io/auth/
 
 To setup standalone Keycloak follow Keycloak's guide link:/https://github.com/keycloak/keycloak/blob/master/README.md[here].
 
-=== Adding Dependency
+=== Adding Auth Package
+Add the Auth package with NPM:
+----
+npm install aerogear/auth@latest --save
+----
 
 === Configuration File
 
@@ -41,12 +45,45 @@ For an example of Keycloak configuration see the example apps link:../../example
 
 The Auth SDK will use this configuration to communicate with Keycloak.
 
-=== Initializing the SDK
 
-=== Retrieving the Current User
+=== Initializing the SDK
+`AuthService` can be retrieved by importing it:
+----
+import { AuthService } from 'aerogear/auth';
+----
+Before the `AuthService` can be used, the `init` function must be invoked once in an app.
+----
+let authService = new AuthService(keycloakConfig)
+authService.init()
+    .then(() => {
+        // add your own logic here on successfull initialization
+    })
+    .catch((err) => {
+        // add your error handing here
+    });
+----
 
 === Authenticating
+To start the authentication invoke the `login` function:
+----
+authService.login()
+----
 
-=== Retrieving a Users Roles
+=== Retrieving the Current User
+To retrieve the current authenticated user the `loadUserProfile` function can be invoked. This will be `null` if there is no user authenticated. To check if a user is authenticated the `isAuthenticated` function can be invoked
+----
+if (AuthService.isAuthenticated()) {
+            authService.loadUserProfile().then((keyCloakUserProfile) => {
+                // .. add your own logic here
+            })
+                .catch((err) => {
+                    // .. add your error handing here
+                };
+----
 
 === Logging Out
+To logout, invoke the `logout` funtion:
+----
+authService.logout()
+----
+By default, the local tokens obtained during authentication are only deleted when the logout succeeded against the authentication server.
