@@ -72,7 +72,7 @@ authService.login()
 === Retrieving the Current User
 To retrieve the current authenticated user the `loadUserProfile` function can be invoked. This will be `null` if there is no user authenticated. To check if a user is authenticated the `isAuthenticated` function can be invoked
 ----
-if (AuthService.isAuthenticated()) {
+if (authService.isAuthenticated()) {
             authService.loadUserProfile().then((keyCloakUserProfile) => {
                 // .. add your own logic here
             })
