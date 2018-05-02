@@ -1,0 +1,29 @@
+{
+  "name": "@aerogear/cordova-plugin-aerogear-self-defence-checks",
+  "version": "0.1.0",
+  "description": "Cordova Self Defence Checks",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "author": "Aerogear <aerogear@googlegroups.com>",
+  "cordova": {
+    "id": "cordova-plugin-aerogear-self-defence-checks",
+    "platforms": []
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aerogear/aerogear-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://issues.jboss.org/projects/AGCORDOVA/issues"
+  },
+  "keywords": [
+    "aerogear",
+    "mobile",
+    "self defence checks",
+    "cordova"
+  ],
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

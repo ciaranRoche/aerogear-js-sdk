@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin 
+    id="cordova-plugin-aerogear-self-defence-checks"
+    version="0.0.1"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"> 
+
+    <name>cordova-plugin-aerogear-self-defence-checks</name>
+    <description>Aerogear Cordova Device Plugin for running self defence checks on a device the app is running on</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,device, self defence checks</keywords>
+    
+    <js-module src="www/index.js" name="selfdefencecheck">
+        <clobbers target="selfdefencecheck" />
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="ScreenLockCheck">
+                <param name="android-package" value="android.ScreenLockCheck"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <source-file src="src/android/ScreenLockCheck.java" target-dir="src/com/aerogear/ScreenLockCheck"/>
+    </platform>
+
+</plugin>
